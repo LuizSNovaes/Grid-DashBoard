@@ -7,7 +7,8 @@
     <title>Dashboard Grid</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    
+
+
 </head>
 
 <body>
@@ -15,19 +16,136 @@
     <main class="dashboard">
 
         <aside class="sidebar">
-            Sidebar
+
+            <div class="sidebar-top">
+
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="https://i.pinimg.com/736x/fe/14/ab/fe14ab12b685ab4ffdfd20d2b8ae7c11.jpg" alt="">
+                    </div>
+                    <h2>Chery Farm</h2>
+                </div>
+
+                <div class="search">
+                    <span class="material-icons">search</span>
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <nav class="menu">
+                    <a href="#" class="active">
+                        <span class="material-icons">inbox</span>
+                        <span class="text">Dashboard</span>
+                    </a>
+                    <a href="#" class="">
+                        <span class="material-icons">person</span>
+                        <select name="Add policy" id="">
+                            <option value="" selected> Customers</option>
+                            <option value="">Low</option>
+                            <option value="">Medium</option>
+                            <option value="">High</option>
+                        </select>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons">search</span>
+                        <span class="text">All reports</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons">search</span>
+                        <span class="text">Geography</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons">search</span>
+                        <span class="text">Conversations</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons">search</span>
+                        <span class="text">Deals</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons">search</span>
+                        <span class="text">Export</span>
+                    </a>
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+
+                    <img src="./assets/Ilia Topuria.jpg" alt="">
+
+                    <div>
+                        <h4>Luiz Gustavo</h4>
+                        <span>Admin</span>
+                    </div>
+
+                </div>
+
+                <nav class="settings-menu">
+                    <a href="#">
+                        <span class="material-icons">settings</span>
+                        <span class="text">Settings</span>
+                    </a>
+                    <a href=" #" class="logout">
+                        <span class="material-icons">logout</span>
+                        <span class="text">Log out</span>
+                    </a>
+                </nav>
+
+            </div>
+
         </aside>
 
         <section class="card revenue">
-            Revenue
+
+            <h3>Revenues</h3>
+
+            <div class="metric">
+                <span class="value">15%</span>
+                <span class="material-icons trend-up">north_east</span>
+            </div>
+
+            <span class="text">Increase compared to last week</span>
+
+            <a href="#">
+                <span class="text">Revenues report</span>
+                <span class="material-icons">arrow_right_alt</span>
+            </a>
+
         </section>
 
         <section class="card deals">
-            Lost Deals
+
+            <h3>Lost deals</h3>
+
+            <div class="metric">
+                <span class="value">4%</span>
+            </div>
+
+            <span class="text">You closed 96 out of 100 deals</span>
+
+            <a href="#">
+                <span class="text">All deals</span>
+                <span class="material-icons">arrow_right_alt</span>
+            </a>
+
         </section>
 
         <section class="card goal">
-            Goal
+
+            <h3>Quarter goal</h3>
+
+            <div class="goal-chart">
+                <canvas id="goalChart"></canvas>
+                <span class="goal-percent">84%</span>
+            </div>
+
+            <a href="#">
+                <span class="text">All goals</span>
+                <span class="material-icons">arrow_right_alt</span>
+            </a>
+
         </section>
 
         <section class="card customers">
@@ -67,6 +185,9 @@
         </section>
 
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
