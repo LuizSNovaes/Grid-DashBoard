@@ -2,10 +2,9 @@
 
 :root{
     --bg: #f5f5f5;
-
     --white: #ffffff;
 
-    --primary: #f4b64c;
+    --primary: #D2042D;
     --primary-light: #fde8bc;
 
     --success: #4CAF50;
@@ -28,25 +27,47 @@
     box-sizing:border-box;
 }
 
+html,
 body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
 
+body{
     background:var(--bg);
     font-family:"Poppins", sans-serif;
 }
 
 .dashboard{
+    width:100vw;
+    height:100vh;
+
+    padding:12px;
+
     display:grid;
+    gap:12px;
+
+    grid-template-columns:
+        350px
+        1fr
+        1fr
+        1.2fr;
+
+    grid-template-rows:
+        240px
+        1fr
+        240px;
+
     grid-template-areas:
         "sidebar revenue deals goal"
         "sidebar customers customers growth"
         "sidebar chats states newDeals";
-        height:100vh;
-        width:100vw;
-        padding:20px;
 }
+
 .card,
-.sidebar,
-.growth{
+.growth,
+.sidebar{
     background:var(--white);
     border:1px solid var(--border);
     border-radius:var(--radius);
@@ -55,18 +76,245 @@ body{
 
 .sidebar{
     grid-area:sidebar;
+
+    padding:24px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-.revenue{
-    grid-area:revenue;
+.sidebar-top{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
 }
 
-.deals{
-    grid-area:deals;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.goal{
-    grid-area:goal;
+.logo-icon img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h2{
+    font-size:2rem;
+    font-weight:700;
+}
+
+.search {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text-light);
+    width:100%;
+    height:44px;
+    border: 1px solid var(--border);
+    border-radius:50px;
+    padding: 16px;
+}
+
+.search input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+    font-family:inherit;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.menu a{
+    text-decoration:none;
+    display: flex;
+    align-items: center;
+    gap:12px;
+    color:#444;
+    padding:12px 10px;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.menu  select{
+    font-size: 16px;
+    width:100%;
+    color:#444;
+    border-radius:10px;
+    border: none;
+    outline: none;
+    transition:.2s;
+    background:transparent;
+}
+
+.menu .active:hover{
+    background:#f7f7f7;
+    color:var(--primary);
+}
+
+.menu a:hover{
+    background:#f7f7f7;
+}
+
+.sidebar-bottom{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile div{
+    min-width:0;
+    flex:1;
+}
+
+.profile h4{
+    font-size:14px;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.profile span{
+    background:var(--primary);
+    color:#fff;
+
+    font-size:12px;
+
+    padding:2px 8px;
+    border-radius:999px;
+}
+
+.settings-menu{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.settings-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#555;
+}
+
+.logout{
+    color:#e53935 !important;
+}
+
+.revenue h3,
+.goal h3,
+.deals h3{
+    font-size: 25px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.metric{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.metric .value{
+    font-size: 64px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.metric .trend-up{
+    color:var(--success);
+    font-size: 50px;
+}
+
+.revenue a,
+.goal a,
+.deals a{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    text-decoration:none;
+    color: var(--primary);
+    font-size:1rem;
+    font-weight:500;
+}
+
+.revenue a:hover,
+.goal a:hover,
+.deals a:hover{
+    opacity:.8;
+}
+
+.revenue a .material-icons,
+.goal a .material-icons,
+.deals a .material-icons{
+    font-size:18px;
+}
+
+.goal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.goal-chart {
+    width: 220px;
+    height: 120px;
+}
+
+.goal a {
+    align-self: center;
+}
+
+.goal-chart {
+    position: relative;
+
+    width: 220px;
+    height: 120px;
+
+    margin: 0 auto;
+}
+
+.goal-percent {
+    position: absolute;
+
+    left: 50%;
+    top: 70%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 42px;
+    font-weight: 600;
+    color: #222;
 }
 
 .customers{
@@ -85,23 +333,16 @@ body{
     grid-area:newDeals;
 }
 
-/* ==========================
-   GROWTH
-========================== */
 .growth{
     grid-area:growth;
 
     display:grid;
+    gap:12px;
 
-    gap:15px;
-
-    padding:15px;
+    padding:12px;
 
     grid-template-columns:repeat(3, 1fr);
-
-    grid-template-rows:
-        2fr
-        1fr;
+    grid-template-rows:2fr 1fr;
 
     grid-template-areas:
         "chart chart chart"
@@ -124,18 +365,6 @@ body{
     grid-area:buyer;
 }
 
-.sidebar,
-.card,
-.growth-chart,
-.growth-month,
-.growth-year,
-.growth-buyer{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
-}
-
 .growth-chart,
 .growth-month,
 .growth-year,
@@ -143,4 +372,18 @@ body{
     background:#fafafa;
     border:1px solid var(--border);
     border-radius:var(--radius-sm);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:600;
+}
+
+.card{
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:flex-start;
 }
