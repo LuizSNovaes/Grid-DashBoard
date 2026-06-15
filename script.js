@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 datasets: [{
                     data: [84, 16],
                     backgroundColor: [
-                        "#F6C45A", // amarelo
+                        "#D2042D", // amarelo
                         "#F3EBDD"  // fundo
                     ],
                     borderWidth: 0,
