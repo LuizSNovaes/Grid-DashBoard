@@ -1,0 +1,144 @@
+:root{
+    --bg: #f5f5f5;
+
+    --white: #ffffff;
+
+    --primary: #f4b64c;
+    --primary-light: #fde8bc;
+
+    --success: #4CAF50;
+    --danger: #ff5f5f;
+
+    --text: #222222;
+    --text-light: #8a8a8a;
+
+    --border: #ececec;
+
+    --radius: 20px;
+    --radius-sm: 12px;
+
+    --shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:var(--bg);
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-areas:
+        "sidebar revenue deals goal"
+        "sidebar customers customers growth"
+        "sidebar chats states newDeals";
+        height:100vh;
+        width:100vw;
+        padding:20px;
+}
+.card,
+.sidebar,
+.growth{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.sidebar{
+    grid-area:sidebar;
+}
+
+.revenue{
+    grid-area:revenue;
+}
+
+.deals{
+    grid-area:deals;
+}
+
+.goal{
+    grid-area:goal;
+}
+
+.customers{
+    grid-area:customers;
+}
+
+.chats{
+    grid-area:chats;
+}
+
+.states{
+    grid-area:states;
+}
+
+.new-deals{
+    grid-area:newDeals;
+}
+
+/* ==========================
+   GROWTH
+========================== */
+.growth{
+    grid-area:growth;
+
+    display:grid;
+
+    gap:15px;
+
+    padding:15px;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    grid-template-rows:
+        2fr
+        1fr;
+
+    grid-template-areas:
+        "chart chart chart"
+        "month year buyer";
+}
+
+.growth-chart{
+    grid-area:chart;
+}
+
+.growth-month{
+    grid-area:month;
+}
+
+.growth-year{
+    grid-area:year;
+}
+
+.growth-buyer{
+    grid-area:buyer;
+}
+
+.sidebar,
+.card,
+.growth-chart,
+.growth-month,
+.growth-year,
+.growth-buyer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.growth-chart,
+.growth-month,
+.growth-year,
+.growth-buyer{
+    background:#fafafa;
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+}
