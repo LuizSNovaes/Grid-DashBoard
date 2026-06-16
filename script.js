@@ -7,10 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
             data: {
                 datasets: [{
                     data: [84, 16],
-                    backgroundColor: [
-                        "#D2042D", // amarelo
-                        "#F3EBDD"  // fundo
-                    ],
+                    backgroundColor: ["#D2042D", "#F3EBDD"],
                     borderWidth: 0,
                     borderRadius: 20
                 }]
@@ -18,18 +15,60 @@ document.addEventListener("DOMContentLoaded", () => {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-
-                rotation: -90, // começa na esquerda
-                circumference: 180, // meia lua
-
+                rotation: -90,
+                circumference: 180,
                 cutout: "80%",
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        }
+    );
+
+    new Chart(
+        document.getElementById("growthChart"),
+        {
+            type: "line",
+            data: {
+                labels: [
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020",
+                    "2021",
+                    "2022",
+                    "2023"
+                ],
+                datasets: [{
+                    label: "Growth",
+                    data: [8, 10, 35, 55, 8, 15, 60, 100],
+                    borderColor: "#D2042D",
+                    backgroundColor: "rgba(210, 4, 45, .15)",
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
 
                 plugins: {
                     legend: {
                         display: false
+                    }
+                },
+
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
                     },
-                    tooltip: {
-                        enabled: false
+                    y: {
+                        beginAtZero: true
                     }
                 }
             }
@@ -37,3 +76,45 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+new Chart(
+    document.getElementById("statesChart"),
+    {
+        type: "bar",
+        data: {
+            labels: ["NY", "MA", "NH", "OR"],
+            datasets: [{
+                data: [120, 80, 70, 50],
+                backgroundColor: "#c5193b",
+                borderRadius: 8,
+                borderSkipped: false
+            }]
+        },
+        options: {
+            indexAxis: "y",
+
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    }
+);
