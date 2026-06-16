@@ -132,7 +132,7 @@ body{
     display: flex;
     align-items: center;
     gap:12px;
-    color:#444;
+    color: var(--text-light);
     padding:12px 10px;
     border-radius:10px;
     transition:.2s;
@@ -141,7 +141,7 @@ body{
 .menu  select{
     font-size: 16px;
     width:100%;
-    color:#444;
+    color: var(--text-light);
     border-radius:10px;
     border: none;
     outline: none;
@@ -192,7 +192,7 @@ body{
 
 .profile span{
     background:var(--primary);
-    color:#fff;
+    color: var(--white);
     font-size:12px;
     padding:2px 8px;
     border-radius:999px;
@@ -209,11 +209,11 @@ body{
     align-items:center;
     gap:12px;
     text-decoration:none;
-    color:#555;
+    color: var(--text);
 }
 
 .settings-menu .logout{
-    color:#e53935;
+    color: var(--danger);
 }
 
 .revenue h3,
@@ -303,7 +303,7 @@ body{
     transform: translate(-50%, -50%);
     font-size: 42px;
     font-weight: 600;
-    color: #222;
+    color: var(--text);
 }
 
 .customers{
@@ -328,7 +328,7 @@ body{
     display:flex;
     align-items:center;
     gap:4px;
-    color:#777;
+    color: var(--text-light);
     font-size:15px;
 }
 
@@ -392,29 +392,13 @@ body{
     background: var(--text-light);
 }
 
-.chats{
-    grid-area:chats;
-}
-
-.states{
-    grid-area:states;
-}
-
-.new-deals{
-    grid-area:newDeals;
-}
-
 .growth{
     grid-area:growth;
-
     display:grid;
-    gap:12px;
-
-    padding:12px;
-
-    grid-template-columns:repeat(3, 1fr);
-    grid-template-rows:2fr 1fr;
-
+    gap:14px;
+    padding:14px;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1.5fr 1fr;
     grid-template-areas:
         "chart chart chart"
         "month year buyer";
@@ -422,6 +406,87 @@ body{
 
 .growth-chart{
     grid-area:chart;
+    background: var(--white);
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+}
+
+.growth-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.growth-header h3{
+    font-size:20px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.growth-filter{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    color: var(--text-light);
+    font-size:15px;
+}
+
+.growth-card{
+    background: var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding: 6px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+
+.growth-card .label{
+    color: var(--text-light);
+    font-size:16px;
+    font-weight:500;
+    
+}
+
+.growth-card .info{
+    margin-top:14px;
+}
+
+.growth-card .info h4{
+    font-size:26px;
+    font-weight:600;
+    color: var(--primary);
+}
+
+.growth-card .info span{
+    font-size:13px;
+    color: var(--text-light);
+}
+
+.buyer{
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.buyer img{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+}
+
+.buyer h4{
+    font: size 14px;
+    font-weight:600;
+    color: var(--text);
+}
+
+.buyer span{
+    font-size:14px;
+    color:#888;
 }
 
 .growth-month{
@@ -436,19 +501,75 @@ body{
     grid-area:buyer;
 }
 
-.growth-chart,
-.growth-month,
-.growth-year,
-.growth-buyer{
-    background:#fafafa;
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.chats{
+    grid-area:chats;
+    justify-content:flex-start;
+}
 
+.chats h3{
+    font-size:25px;
     font-weight:600;
+    color:var(--text);
+}
+
+.unread{
+    color:var(--text-light);
+    font-size:16px;
+}
+
+.chat-users{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:10px;
+}
+
+.chat-user{
+    position:relative;
+}
+
+.chat-user img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.chat-user.active{
+    background: color-mix(in srgb, var(--primary-light) 45%, transparent);
+    padding:12px;
+    border-radius:18px;
+}
+
+.notification{
+    position:absolute;
+    top:8px;
+    right:8px;
+    width:10px;
+    height:10px;
+    background:#ff5f5f;
+    border:2px solid white;
+    border-radius:50%;
+}
+
+.states{
+    grid-area:states;
+    justify-content:flex-start;
+}
+
+.states-header{
+    width:100%;
+}
+
+.states-header h3{
+    font-size:25px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.new-deals{
+    grid-area:newDeals;
 }
 
 .card{
