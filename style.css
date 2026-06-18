@@ -144,10 +144,11 @@ body {
     object-fit: cover;
 }
 
-.logo h2 {
+.logo h3 {
     font-size: 1.25rem;
     font-weight: 700;
     white-space: nowrap;
+    color: var(--text);
 }
 
 .search {
@@ -248,8 +249,9 @@ body.dark-mode .menu select option {
     flex: 1;
 }
 
-.profile h4 {
+.profile h3 {
     font-size: 13px;
+    color: var(--text);
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -258,7 +260,7 @@ body.dark-mode .menu select option {
 
 .profile span {
     background: var(--primary);
-    color: var(--white);
+    color: var(--text);
     font-size: 10px;
     padding: 1px 7px;
     border-radius: 999px;
@@ -289,6 +291,7 @@ body.dark-mode .menu select option {
 .delivery h3,
 .employees h3,
 .products h3,
+.customers-header h3,
 .average-order h3,
 .revenue-overview h3,
 .orders h3,
@@ -316,6 +319,7 @@ body.dark-mode .menu select option {
     color: var(--success);
     font-size: 32px;
 }
+
 
 .revenue a,
 .customers a,
@@ -751,6 +755,11 @@ body.dark-mode .menu select option {
     grid-area: emp;
 }
 
+.employees span,
+.text {
+    color: var(--text);
+}
+
 .big-number {
     font-size: 32px;
     font-weight: 700;
@@ -778,46 +787,89 @@ body.dark-mode .menu select option {
     border-bottom: none;
 }
 
-@media (max-width: 900px) {
-
-    html,
-    body {
-        height: auto;
-        overflow: auto;
-    }
+@media (min-width: 481px) and (max-width: 900px) {
 
     .dashboard {
-    height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
 
-    grid-template-areas:
-        "side side"
-        "rev deal"
-        "goal goal"
-        "cust cust"
-        "grow grow"
-        "chat stat"
-        "ndl ndl"
-        "avg pro"
-        "ord ro"
-        "emp del";
-}
+        grid-template-areas:
+            "side side"
+            "rev deal"
+            "goal goal"
+            "cust cust"
+            "grow grow"
+            "chat stat"
+            "ndl ndl"
+            "avg pro"
+            "ord ro"
+            "emp del";
+    }
+
+    .sidebar {
+        padding: 16px;
+    }
+
+    .sidebar-top {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .search {
+        width: 100%;
+        margin: 0;
+    }
+
+    .menu {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+
+        margin-top: 10px;
+    }
+
+    .menu a {
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .menu .text {
+        font-size: 11px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 12px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .settings-menu {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .profile {
+        margin: 0;
+    }
 
     .metric .value {
-        font-size: 40px;
+        font-size: 36px;
     }
-}
 
-@media (max-width: 900px) {
     .states-chart {
-        height: 200px;
-        flex: none;
+        height: 220px;
     }
 
     .chart-placeholder {
-        height: 180px;
-        flex: none;
+        height: 220px;
     }
 }
 
