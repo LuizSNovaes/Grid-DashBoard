@@ -118,3 +118,35 @@ new Chart(
         }
     }
 );
+
+const toggle = document.getElementById("theme-toggle");
+const icon = document.getElementById("theme-icon");
+const text = document.getElementById("theme-text");
+
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    icon.textContent = "light_mode";
+    text.textContent = "Light Mode";
+}
+
+toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.body.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+
+    if (isDark) {
+        icon.textContent = "light_mode";
+        text.textContent = "Light Mode";
+
+        localStorage.setItem("theme", "dark");
+    } else {
+        icon.textContent = "bedtime";
+        text.textContent = "Dark Mode";
+
+        localStorage.setItem("theme", "light");
+    }
+});
