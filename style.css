@@ -381,6 +381,11 @@ body {
     flex: 1;
 }
 
+.customer:hover{
+    background: color-mix(in srgb, var(--primary-light) 25%, transparent);
+    transition: .2s;
+}
+
 .customer {
     display: flex;
     align-items: center;
@@ -389,9 +394,6 @@ body {
     border-radius: 14px;
 }
 
-.customer.active {
-    background: color-mix(in srgb, var(--primary-light) 25%, transparent);
-}
 
 .customer img {
     width: 38px;
@@ -433,7 +435,7 @@ body {
 .divider {
     width: 1px;
     height: 18px;
-    background: var(--border);
+    background: var(--text-light);
 }
 
 .growth {
