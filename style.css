@@ -21,15 +21,16 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     background: var(--bg);
     font-family: "Poppins", sans-serif;
+    overflow-y: auto;
 }
 
 .dashboard {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     padding: 12px;
     display: grid;
     gap: 12px;
@@ -44,11 +45,12 @@ body {
         1fr
         1fr
         1fr;
-    grid-template-rows: 1fr 1.8fr 1fr;
+    grid-template-rows: 1fr 1.8fr 1fr 1fr;
     grid-template-areas:
-        "side rev  rev  rev  deal deal deal goal goal goal"
-        "side cust cust cust cust cust grow grow grow grow"
-        "side chat chat stat stat stat stat ndl  ndl  ndl ";
+"side rev rev rev deal deal deal goal goal goal"
+"side cust cust cust cust cust grow grow grow grow"
+"side chat chat stat stat stat stat ndl ndl ndl"
+"side avg pro pro ord ord ro ro emp del"
 }
 
 .sidebar {
@@ -262,6 +264,12 @@ body {
 }
 
 .revenue h3,
+.delivery h3,
+.employees h3,
+.products h3,
+.average-order h3,
+.revenue-overview h3,
+.orders h3,
 .deals h3,
 .goal h3 {
     font-size: 16px;
@@ -681,6 +689,73 @@ body {
     border-radius: 50%;
 }
 
+.revenue-overview {
+    grid-area: ro;
+}
+
+.orders {
+    grid-area: ord;
+}
+
+.average-order {
+    grid-area: avg;
+}
+
+.delivery {
+    grid-area: del;
+}
+.products {
+    grid-area: pro;
+}
+
+.products ul li span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.products ul li{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.products .activity-list img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50px;
+}
+
+.employees {
+    grid-area: emp;
+}
+
+.big-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.growth-positive {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.activity-list {
+    list-style: none;
+    width: 100%;
+}
+
+.activity-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text);
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
 @media (max-width: 900px) {
 
     html,
@@ -690,18 +765,22 @@ body {
     }
 
     .dashboard {
-        height: auto;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "side  side"
-            "rev   deal"
-            "goal  goal"
-            "cust  cust"
-            "grow  grow"
-            "chat  stat"
-            "ndl   ndl";
-    }
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+    grid-template-areas:
+        "side side"
+        "rev deal"
+        "goal goal"
+        "cust cust"
+        "grow grow"
+        "chat stat"
+        "ndl ndl"
+        "avg pro"
+        "ord ro"
+        "emp del";
+}
 
     .metric .value {
         font-size: 40px;
@@ -729,18 +808,25 @@ body {
     }
 
     .dashboard {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "side"
-            "rev"
-            "deal"
-            "goal"
-            "cust"
-            "grow"
-            "chat"
-            "stat"
-            "ndl";
-    }
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+        "side"
+        "rev"
+        "deal"
+        "goal"
+        "cust"
+        "grow"
+        "chat"
+        "stat"
+        "ndl"
+        "avg"
+        "pro"
+        "ord"
+        "ro"
+        "emp"
+        "del";
+}
 
     .card,
     .growth,
